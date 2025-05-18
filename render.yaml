@@ -7,10 +7,10 @@ databases:
 services:
   - type: web
     plan: free
-    name: mysite
+    name: kft_backend
     runtime: python
     buildCommand: 'cd kft_backend && ./build.sh'
-    startCommand: 'cd kft_backend && python -m gunicorn mysite.asgi:application -k uvicorn.workers.UvicornWorker'
+    startCommand: 'cd kft_backend && python -m gunicorn kft_backend.asgi:application -k uvicorn.workers.UvicornWorker'
     envVars:
       - key: DATABASE_URL
         fromDatabase:
